@@ -1,0 +1,14 @@
+type Skill{
+    id: ID!,
+    name: String!,
+    importance: Int!
+}
+
+type Query{
+    skills(count: Int): [Skill]
+    skill(id: ID): Skill
+}
+
+type Mutation {
+    createSkill(name: String!,importance: Int!): Skill
+}

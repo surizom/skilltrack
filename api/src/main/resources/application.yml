@@ -6,3 +6,10 @@ graphql:
     # if you want to @ExceptionHandler annotation for custom GraphQLErrors
     exception-handlers-enabled: true
     contextSetting: PER_REQUEST_WITH_INSTRUMENTATION
+
+spring:
+  profiles: dev
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
