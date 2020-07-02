@@ -4,7 +4,8 @@
     "build": "snowpack build",
     "test": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
+    "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
@@ -24,6 +25,11 @@
     "jest": "^25.4.0",
     "prettier": "^2.0.0",
     "snowpack": "^2.5.0",
-    "typescript": "^3.8.0"
+    "typescript": "^3.8.0",
+    "@graphql-codegen/typescript": "1.16.0",
+    "@graphql-codegen/typescript-operations": "1.16.0",
+    "@graphql-codegen/typescript-react-apollo": "1.16.0",
+    "@graphql-codegen/introspection": "1.16.0",
+    "@graphql-codegen/cli": "1.16.0"
   }
 }
