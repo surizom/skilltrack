@@ -9,25 +9,25 @@ interface State {
 }
 
 class ErrorBoundary extends React.Component<Props, State> {
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
+	static getDerivedStateFromError() {
+		return { hasError: true };
+	}
 
-  constructor(props: Props) {
-    super(props);
-    this.state = { hasError: false };
-  }
+	constructor(props: Props) {
+		super(props);
+		this.state = { hasError: false };
+	}
 
-  componentDidCatch() {
-    // Send error to your monitoring system
-  }
+	componentDidCatch() {
+		// Send error to your monitoring system
+	}
 
-  render() {
-    const { hasError } = this.state;
-    const { FallbackComponent, children } = this.props;
+	render() {
+		const { hasError } = this.state;
+		const { FallbackComponent, children } = this.props;
 
-    return hasError ? <FallbackComponent /> : children;
-  }
+		return hasError ? <FallbackComponent /> : children;
+	}
 }
 
 export default ErrorBoundary;

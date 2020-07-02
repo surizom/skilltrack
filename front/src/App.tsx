@@ -5,20 +5,18 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ErrorBoundary from './ErrorBoundary';
 import SkillList from './SkillList';
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 const App = () => {
-  const apolloClient = new ApolloClient({
-    uri: 'http://localhost:8080/graphql',
-  });
+	const apolloClient = new ApolloClient({
+		uri: 'http://localhost:8080/graphql',
+	});
 
-  return (
-    <ErrorBoundary FallbackComponent={() => <div>ERROR</div>}>
-      <ApolloProvider client={apolloClient}>
-        <SkillList />
-      </ApolloProvider>
-    </ErrorBoundary>
-  );
+	return (
+		<ErrorBoundary FallbackComponent={() => <div>ERROR</div>}>
+			<ApolloProvider client={apolloClient}>
+				<SkillList />
+			</ApolloProvider>
+		</ErrorBoundary>
+	);
 };
 
 export default App;
