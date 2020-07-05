@@ -13,7 +13,7 @@ public class SkillService {
 
   private int id = 0;
 
-  private Map<Integer,Skill> skills = new HashMap<Integer, Skill>();
+  private Map<Integer, Skill> skills = new HashMap<>();
 
   public List<Skill> getSkills() {
     return new ArrayList<>(skills.values());
@@ -33,21 +33,18 @@ public class SkillService {
     skill.setId(this.id);
     skill.setImportance(importance);
     skill.setName(name);
-    skills.put(id,skill);
+    skills.put(id, skill);
     return skill;
   }
 
   public List<SkillEvaluation> getSkillEvaluations(int skillId) {
-    return
-
-
-            this.getSkill(skillId).orElse(new Skill()).getEvaluations();
+    return this.getSkill(skillId).orElse(new Skill()).getEvaluations();
   }
 
   public Optional<Skill> evaluateSkill(int skillId, int level) {
-    Skill skillToEvaluate = skills.getOrDefault(skillId,null);
+    Skill skillToEvaluate = skills.getOrDefault(skillId, null);
 
-    if(skillToEvaluate==null){
+    if (skillToEvaluate == null) {
       return Optional.empty();
     }
 
