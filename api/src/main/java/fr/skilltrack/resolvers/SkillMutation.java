@@ -5,6 +5,8 @@ import fr.skilltrack.entities.Skill;
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class SkillMutation implements GraphQLMutationResolver {
   private SkillService skillService;
@@ -15,5 +17,9 @@ public class SkillMutation implements GraphQLMutationResolver {
 
   public Skill createSkill(String name, int importance) {
     return this.skillService.createSkill(name, importance);
+  }
+
+  public Optional<Skill> evaluateSkill(int skillId, int level) {
+    return this.skillService.evaluateSkill(skillId, level);
   }
 }

@@ -2,13 +2,22 @@ type Skill{
     id: ID!,
     name: String!,
     importance: Int!
+    evaluations: [SkillEvaluation]
+}
+
+type SkillEvaluation{
+    skillId: Int!,
+    timestamp: Int!
+    level: Int!
 }
 
 type Query{
     skills(count: Int): [Skill]
     skill(id: ID): Skill
+    evaluations(skillId:Int): [SkillEvaluation]
 }
 
 type Mutation {
     createSkill(name: String!,importance: Int!): Skill
+    evaluateSkill(skillId: Int!, level: Int!): Skill
 }

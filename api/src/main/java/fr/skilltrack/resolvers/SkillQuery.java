@@ -2,6 +2,7 @@ package fr.skilltrack.resolvers;
 
 import fr.skilltrack.SkillService;
 import fr.skilltrack.entities.Skill;
+import fr.skilltrack.entities.SkillEvaluation;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 
@@ -23,5 +24,9 @@ public class SkillQuery implements GraphQLQueryResolver {
 
   public Optional<Skill> getSkill(final int id) {
     return this.skillService.getSkill(id);
+  }
+
+  public List<SkillEvaluation> getEvaluations(int skillId) {
+    return this.skillService.getSkillEvaluations(skillId);
   }
 }
