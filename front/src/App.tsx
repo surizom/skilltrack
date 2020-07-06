@@ -6,9 +6,11 @@ import ErrorBoundary from './ErrorBoundary';
 import Routes from './Routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+export const ENV_VARS = import.meta.env;
+
 const App: React.FunctionComponent = () => {
   const apolloClient = new ApolloClient({
-    uri: 'http://localhost:8080/graphql',
+    uri: ENV_VARS.SNOWPACK_PUBLIC_API_URL,
   });
 
   return (
