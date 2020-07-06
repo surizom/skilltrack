@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { SKILLS } from './queries';
 import type { Skill } from '../generated/graphql';
