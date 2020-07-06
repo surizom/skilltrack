@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router';
 
-const SkillList = lazy(() => import('./SkillList'));
+const SkillList = lazy(() => import('./skills/SkillList'));
 
 export const ROUTE_PATHS = {
   skillList: '/skillList',

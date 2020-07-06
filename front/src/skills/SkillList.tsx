@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { SKILLS } from './queries';
-import type { Skill } from './generated/graphql';
+import type { Skill } from '../generated/graphql';
 
 const SkillList: React.FunctionComponent = ({}) => {
 	const { loading, error, data } = useQuery<{ skills: Skill[] }>(SKILLS);
