@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router';
-import Main from './Main';
+import Main from './common/generalLayout/Main';
 
 const SkillList = lazy(() => import('./skills/SkillList'));
 

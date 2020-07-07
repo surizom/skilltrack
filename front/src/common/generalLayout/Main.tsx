@@ -1,7 +1,7 @@
 import React from 'react';
 import type CSS from 'csstype';
 import type { ReactNode } from 'react';
-import Sidebar, { SIDEBAR_WIDTH } from './Sidebar';
+import Sidebar, { SIDEBAR_WIDTH } from './Sidebar/Sidebar';
 
 interface Props {
   children?: ReactNode;
