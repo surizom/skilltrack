@@ -17,7 +17,7 @@ const sidebarStyle: CSS.Properties = {
 
 const Sidebar: React.FunctionComponent = () => (
   <div style={sidebarStyle}>
-    {sidebarElements.map((element) => (
+    {sidebarElements().map((element) => (
       <SidebarItem {...element} />
     ))}
   </div>

@@ -3,14 +3,9 @@ import type CSS from 'csstype';
 
 import { SvgIcon } from '@material-ui/core';
 import { quintary } from '../../style/palette';
-import type { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import type { SvgIconTypeMap } from '@material-ui/core/SvgIcon/SvgIcon';
+import type { sidebarElementInfo } from './SidebarContent';
 
-interface Props {
-  name: string;
-  link: string;
-  icon: OverridableComponent<SvgIconTypeMap>;
-}
+type Props = sidebarElementInfo;
 
 const sidebarItemStyle: CSS.Properties = {
   width: '10vh',

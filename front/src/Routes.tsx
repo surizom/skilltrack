@@ -5,7 +5,7 @@ import Main from './common/generalLayout/Main';
 const SkillList = lazy(() => import('./skills/SkillList'));
 
 export const ROUTE_PATHS = {
-  skillList: '/skillList',
+  skills: '/skills',
 };
 
 const Routes = () => (
@@ -13,8 +13,8 @@ const Routes = () => (
     <Switch>
       <Main>
         <Route
-          key={ROUTE_PATHS.skillList}
-          path={ROUTE_PATHS.skillList}
+          key={ROUTE_PATHS.skills}
+          path={ROUTE_PATHS.skills}
           render={() => <SkillList />}
         />
       </Main>
