@@ -1,7 +1,7 @@
-export const primary = '#003f5c';
-export const secondary = '#58508d';
-export const tertiary = '#bc5090';
-export const quartenary = '#ff6361';
-export const quintary = '#ffa600';
+export const primary = '#264653';
+export const secondary = '#2a9d8f';
+export const tertiary = '#e9c46a';
+export const quartenary = '#f4a261';
+export const quintary = '#e76f51';
 export const whiteBackground = '#ffffff';
 export const blackBackground = '#2e2e2e';
