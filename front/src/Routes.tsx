@@ -1,10 +1,10 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router';
 import Main from './common/generalLayout/Main';
-import ErrorComponent from './common/misc/ErrorComponent';
-import Home from './home/Home';
 
 const SkillList = lazy(() => import('./skills/SkillList'));
+const Home = lazy(() => import('./home/Home'));
+const ErrorComponent = lazy(() => import('./common/misc/ErrorComponent'));
 
 export const ROUTE_PATHS = {
   home: '/',
