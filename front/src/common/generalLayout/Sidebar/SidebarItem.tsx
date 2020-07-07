@@ -4,8 +4,11 @@ import type CSS from 'csstype';
 import { SvgIcon } from '@material-ui/core';
 import { quintary } from '../../style/palette';
 import type { sidebarElementInfo } from './SidebarContent';
+import type { History } from 'history';
 
-type Props = sidebarElementInfo;
+interface Props extends sidebarElementInfo {
+  history: History;
+}
 
 const sidebarItemStyle: CSS.Properties = {
   width: '10vh',
@@ -25,7 +28,7 @@ const iconStyle: CSS.Properties = {
 };
 
 const SidebarItem: React.FunctionComponent<Props> = (props) => (
-  <div style={sidebarItemStyle} onClick={() => null}>
+  <div style={sidebarItemStyle} onClick={() => props.history.push(props.link)}>
     <SvgIcon style={iconStyle} component={props.icon} />
     <div>Skills</div>
   </div>

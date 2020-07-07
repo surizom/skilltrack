@@ -9,7 +9,7 @@ const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App history={history} />
   </React.StrictMode>,
   document.getElementById('root'),
 );
