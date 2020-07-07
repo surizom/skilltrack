@@ -9,15 +9,15 @@ const style: CSS.Properties = {
   alignItems: 'center',
   backgroundColor: whiteBackground,
   color: primary,
-  fontSize: '15vh',
-  fontWeight: 'bolder',
+  fontSize: '10vh',
+  fontWeight: 'bold',
   padding: '5vh',
 };
 
-const ErrorComponent: React.FunctionComponent = () => (
+const LoadingComponent: React.FunctionComponent = () => (
   <div style={style}>
-    <div>An error has occured :(</div>
+    <div>Loading ...</div>
   </div>
 );
 
-export default ErrorComponent;
+export default LoadingComponent;
