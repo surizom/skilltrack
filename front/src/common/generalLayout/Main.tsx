@@ -17,12 +17,10 @@ const containerStyle: CSS.Properties = {
   flexDirection: 'row',
 };
 const childrenContainerStyle: CSS.Properties = {
-  position: 'absolute',
   display: 'flex',
+  flex: 1,
   justifyContent: 'center',
-  right: 0,
-  left: SIDEBAR_WIDTH,
-  overflowY: 'scroll',
+  overflowY: 'auto',
   height: '100%',
 };
 

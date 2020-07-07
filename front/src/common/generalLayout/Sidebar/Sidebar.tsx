@@ -14,7 +14,6 @@ const sidebarStyle: CSS.Properties = {
   backgroundColor: primary,
   overflowX: 'hidden',
   alignItems: 'center',
-  cursor: 'pointer',
 };
 
 const Sidebar: React.FunctionComponent = () => {

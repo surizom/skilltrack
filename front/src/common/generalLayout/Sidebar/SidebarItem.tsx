@@ -21,6 +21,7 @@ const sidebarItemStyle: CSS.Properties = {
   color: quintary,
   alignItems: 'center',
   justifyItems: 'center',
+  cursor: 'pointer',
 };
 
 const iconStyle: CSS.Properties = {
