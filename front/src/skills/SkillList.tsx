@@ -3,6 +3,12 @@ import { useQuery } from '@apollo/react-hooks';
 import { SKILLS } from './queries';
 import type { Skill } from '../generated/graphql';
 import SkillItem from './SkillItem';
+import type CSS from 'csstype';
+
+const style: CSS.Properties = {
+  display: 'flex',
+  flexDirection: 'column',
+};
 
 const SkillList: React.FunctionComponent = ({}) => {
   const { loading, error, data } = useQuery<{ skills: Skill[] }>(SKILLS);
@@ -15,7 +21,7 @@ const SkillList: React.FunctionComponent = ({}) => {
   }
 
   return (
-    <div>
+    <div style={style}>
       {data.skills.map((skill) => (
         <SkillItem key={skill.id} {...skill} />
       ))}
