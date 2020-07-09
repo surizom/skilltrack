@@ -6,6 +6,7 @@ import ErrorBoundary from './ErrorBoundary';
 import Routes from './Routes';
 import { Router } from 'react-router-dom';
 import type { History } from 'history';
+import ErrorComponent from './common/misc/ErrorComponent';
 
 export const ENV_VARS = import.meta.env;
 
@@ -19,7 +20,7 @@ const App: React.FunctionComponent<Props> = ({ history }) => {
   });
 
   return (
-    <ErrorBoundary FallbackComponent={() => <div>ERROR</div>}>
+    <ErrorBoundary FallbackComponent={ErrorComponent}>
       <ApolloProvider client={apolloClient}>
         <Router history={history}>
           <Routes />
