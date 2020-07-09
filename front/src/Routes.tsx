@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router';
 import Main from './common/generalLayout/Main';
 
-const SkillList = lazy(() => import('./skills/SkillList'));
+const SkillsPage = lazy(() => import('./skills/SkillsPage'));
 const Home = lazy(() => import('./home/Home'));
 const ErrorComponent = lazy(() => import('./common/misc/ErrorComponent'));
 
@@ -25,7 +25,7 @@ const Routes = () => (
         <Route
           key={ROUTE_PATHS.skills}
           path={ROUTE_PATHS.skills}
-          render={() => <SkillList />}
+          render={() => <SkillsPage />}
           exact={true}
         />
         <Route

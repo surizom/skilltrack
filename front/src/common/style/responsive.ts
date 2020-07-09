@@ -1,0 +1,1 @@
+export const SMALL_SCREEN_TRESHLOD = 600;

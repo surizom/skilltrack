@@ -5,7 +5,7 @@ export const skillListStyle: CSS.Properties = {
   display: 'flex',
   flexDirection: 'column',
   height: '10vh',
-  width: '60vh',
+  width: 'auto',
   borderRadius: '1vh',
   borderColor: 'black',
   borderWidth: '1vh',
@@ -21,5 +21,5 @@ export const importanceStyle = (importance: number): CSS.Properties => {
 };
 
 export const skillNameStyle: CSS.Properties = {
-  fontSize: '4vh',
+  fontSize: '3vh',
 };

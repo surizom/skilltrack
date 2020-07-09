@@ -10,7 +10,7 @@ const style: CSS.Properties = {
   flexDirection: 'column',
 };
 
-const SkillList: React.FunctionComponent = ({}) => {
+const SkillList: React.FunctionComponent = () => {
   const { loading, error, data } = useQuery<{ skills: Skill[] }>(SKILLS);
 
   if (loading) return <p>Loading...</p>;
