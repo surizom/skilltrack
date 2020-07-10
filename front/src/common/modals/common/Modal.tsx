@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import type CSS from 'csstype';
 import { blackBackground } from '../../style/palette';
+import { MODAL, ModalContext } from './ModalProvider';
+import SkillCreationModal from '../SkillCreationModal';
 
 export const MODAL_Z_INDEX = 50;
 
@@ -16,13 +18,37 @@ const modalContainerStyle: CSS.Properties = {
   zIndex: MODAL_Z_INDEX,
 };
 
-export enum MODAL {
-  SKILL_CREATION,
-}
-
 const Modal: React.FunctionComponent = () => {
-  const displayModal = false;
-  return displayModal ? <div style={modalContainerStyle}></div> : null;
+  const modalContext = useContext(ModalContext);
+
+  console.log('modalContext');
+  console.log(modalContext);
+
+  let activeModalElement;
+
+  switch (modalContext.openedModal) {
+    case MODAL.SKILL_CREATION:
+      activeModalElement = <SkillCreationModal />;
+      break;
+    default:
+      activeModalElement = null;
+  }
+
+  if (activeModalElement === null) {
+    return null;
+  }
+
+  return (
+    <div
+      key={
+        modalContext.openedModal ? modalContext.openedModal.toString() : 'empty'
+      }
+      style={modalContainerStyle}
+      onClick={modalContext.closeModal}
+    >
+      {activeModalElement}
+    </div>
+  );
 };
 
 export default Modal;

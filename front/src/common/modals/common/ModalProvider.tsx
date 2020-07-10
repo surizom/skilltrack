@@ -1,5 +1,4 @@
 import React, { createContext, ReactNode, useState } from 'react';
-import type { MODAL } from './Modal';
 
 interface Props {
   children?: ReactNode;
@@ -9,6 +8,10 @@ interface ModalContextProps {
   openedModal: MODAL | null;
   openModal: (modal: MODAL) => void;
   closeModal: () => void;
+}
+
+export enum MODAL {
+  SKILL_CREATION = 'SkillCreationModal',
 }
 
 const DEFAULT_CALLBACK = (param?: any) => {};

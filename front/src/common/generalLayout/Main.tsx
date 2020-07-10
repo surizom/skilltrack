@@ -3,6 +3,7 @@ import type CSS from 'csstype';
 import type { ReactNode } from 'react';
 import Sidebar, { SIDEBAR_WIDTH } from './Sidebar/Sidebar';
 import Modal from '../modals/common/Modal';
+import ModalProvider from '../modals/common/ModalProvider';
 
 interface Props {
   children?: ReactNode;
@@ -27,11 +28,14 @@ const childrenContainerStyle: CSS.Properties = {
 
 const Main: React.FunctionComponent<Props> = ({ children }) => (
   <>
-    <Modal />
-    <div style={containerStyle}>
-      <Sidebar />
-      <div style={childrenContainerStyle}>{children}</div>
-    </div>
+    <ModalProvider>
+      <Modal />
+
+      <div style={containerStyle}>
+        <Sidebar />
+        <div style={childrenContainerStyle}>{children}</div>
+      </div>
+    </ModalProvider>
   </>
 );
 

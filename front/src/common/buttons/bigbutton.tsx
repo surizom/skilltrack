@@ -8,6 +8,7 @@ import { SvgIcon } from '@material-ui/core';
 interface Props {
   text: string;
   icon: OverridableComponent<SvgIconTypeMap>;
+  onClick: () => void;
 }
 
 const bigButtonContainerStyle: CSS.Properties = {
@@ -38,7 +39,7 @@ const textStyle: CSS.Properties = {
 };
 
 const Bigbutton: React.FunctionComponent<Props> = (props) => (
-  <div style={bigButtonContainerStyle}>
+  <div style={bigButtonContainerStyle} onClick={props.onClick}>
     <SvgIcon style={iconStyle} component={props.icon} />
     <div style={textStyle}>{props.text}</div>
   </div>
