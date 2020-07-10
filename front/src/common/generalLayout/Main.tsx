@@ -2,7 +2,7 @@ import React from 'react';
 import type CSS from 'csstype';
 import type { ReactNode } from 'react';
 import Sidebar, { SIDEBAR_WIDTH } from './Sidebar/Sidebar';
-import Modal from '../modals/Modal';
+import Modal from '../modals/common/Modal';
 
 interface Props {
   children?: ReactNode;

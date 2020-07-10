@@ -1,6 +1,6 @@
 import React from 'react';
 import type CSS from 'csstype';
-import { blackBackground } from '../style/palette';
+import { blackBackground } from '../../style/palette';
 
 export const MODAL_Z_INDEX = 50;
 
@@ -15,6 +15,10 @@ const modalContainerStyle: CSS.Properties = {
   justifyContent: 'center',
   zIndex: MODAL_Z_INDEX,
 };
+
+export enum MODAL {
+  SKILL_CREATION,
+}
 
 const Modal: React.FunctionComponent = () => {
   const displayModal = false;
