@@ -8,6 +8,8 @@ const style: CSS.Properties = {
   display: 'flex',
   flexDirection: 'row',
   alignContent: 'space-between',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
 const createSkillButtonStyle: CSS.Properties = {

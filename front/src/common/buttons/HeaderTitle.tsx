@@ -6,11 +6,11 @@ interface Props {
   text: string;
 }
 
-const bigButtonContainerStyle: CSS.Properties = {
-  width: '20vh',
-  height: '6vh',
-  margin: '2vh',
+const headerTitleContainerStyle: CSS.Properties = {
   display: 'flex',
+  width: 'auto',
+  height: '6vh',
+  margin: '2vw',
   overflow: 'hidden',
   alignItems: 'center',
   justifyContent: 'center',
@@ -24,7 +24,7 @@ const textStyle: CSS.Properties = {
 };
 
 const HeaderTitle: React.FunctionComponent<Props> = (props) => (
-  <div style={bigButtonContainerStyle}>
+  <div style={headerTitleContainerStyle}>
     <div style={textStyle}>{props.text}</div>
   </div>
 );

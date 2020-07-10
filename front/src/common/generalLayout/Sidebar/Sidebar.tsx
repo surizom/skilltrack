@@ -5,10 +5,10 @@ import SidebarItem from './SidebarItem';
 import { sidebarElements } from './SidebarContent';
 import { useHistory } from 'react-router';
 
-export const SIDEBAR_WIDTH = '10vh';
+export const SIDEBAR_WIDTH = '14vw';
 
 const sidebarStyle: CSS.Properties = {
-  width: '12vh',
+  maxWidth: SIDEBAR_WIDTH,
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: primary,
