@@ -39,7 +39,7 @@ const Sidebar: React.FunctionComponent = () => {
         <FormControlLabel
           control={
             <Switch
-              checked={darkModeContext.themeColor === 'light'}
+              checked={darkModeContext.themeColor === 'dark'}
               onChange={darkModeContext.switchThemeColor}
             />
           }
