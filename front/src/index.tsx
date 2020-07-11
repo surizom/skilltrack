@@ -4,12 +4,15 @@ import App from './App';
 import './index.css';
 
 import createBrowserHistory from 'history/createBrowserHistory';
+import DarkModeProvider from './common/style/darkMode';
 
 const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
 
 ReactDOM.render(
   <React.StrictMode>
-    <App history={history} />
+    <DarkModeProvider>
+      <App history={history} />
+    </DarkModeProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

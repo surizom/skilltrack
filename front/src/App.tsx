@@ -1,5 +1,4 @@
-import React from 'react';
-import './App.css';
+import React, { useContext, useState } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ErrorBoundary from './ErrorBoundary';
@@ -10,6 +9,7 @@ import ErrorComponent from './common/misc/ErrorComponent';
 import theme from './common/style/theme';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
+import { DarkModeContext } from './common/style/darkMode';
 
 export const ENV_VARS = import.meta.env;
 
@@ -22,8 +22,10 @@ const App: React.FunctionComponent<Props> = ({ history }) => {
     uri: ENV_VARS.SNOWPACK_PUBLIC_API_URL,
   });
 
+  const darkModeContext = useContext(DarkModeContext);
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme(darkModeContext.themeColor)}>
       <CssBaseline />
       <ErrorBoundary FallbackComponent={ErrorComponent}>
         <ApolloProvider client={apolloClient}>

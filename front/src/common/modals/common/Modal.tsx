@@ -21,9 +21,6 @@ const modalContainerStyle: CSS.Properties = {
 const Modal: React.FunctionComponent = () => {
   const modalContext = useContext(ModalContext);
 
-  console.log('modalContext');
-  console.log(modalContext);
-
   let activeModalElement;
 
   switch (modalContext.openedModal) {
