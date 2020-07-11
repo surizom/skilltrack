@@ -1,24 +1,30 @@
 import React from 'react';
-import type CSS from 'csstype';
 import { primary, secondary, whiteBackground } from '../style/palette';
-import { CircularProgress } from '@material-ui/core';
+import { Box, CircularProgress } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-const style: CSS.Properties = {
-  display: 'flex',
-  flex: 1,
-  flexDirection: 'column',
-  alignItems: 'center',
-  backgroundColor: whiteBackground,
-  color: primary,
-  fontSize: '10vh',
-  fontWeight: 'bold',
-  padding: '5vh',
+const useStyles = makeStyles((theme) => ({
+  loadingComponentContainer: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: whiteBackground,
+    color: primary,
+    fontSize: '10vh',
+    fontWeight: 'bold',
+    padding: '5vh',
+  },
+}));
+
+const LoadingComponent = () => {
+  const classes = useStyles();
+
+  return (
+    <Box className={classes.loadingComponentContainer}>
+      <CircularProgress color="secondary" />
+    </Box>
+  );
 };
-
-const LoadingComponent = () => (
-  <div style={style}>
-    <CircularProgress color="secondary" />
-  </div>
-);
 
 export default LoadingComponent;
