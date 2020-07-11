@@ -7,7 +7,7 @@ import Routes from './Routes';
 import { Router } from 'react-router-dom';
 import type { History } from 'history';
 import ErrorComponent from './common/misc/ErrorComponent';
-import theme from './theme';
+import theme from './common/style/theme';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
 

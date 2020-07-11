@@ -1,6 +1,6 @@
 import React from 'react';
 import type CSS from 'csstype';
-import SkillPageHeader from './SkillsPageHeader';
+import PageHeader from './SkillsPageHeader';
 import SkillList from './SkillList';
 import { SMALL_SCREEN_TRESHLOD } from '../common/style/responsive';
 
@@ -13,7 +13,7 @@ const style: CSS.Properties = {
 const SkillsPage: React.FunctionComponent = () => {
   return (
     <div style={style}>
-      <SkillPageHeader />
+      <PageHeader />
       <SkillList />
     </div>
   );
