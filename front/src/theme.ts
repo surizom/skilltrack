@@ -1,6 +1,10 @@
-import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { primary, secondary, whiteBackground } from './common/style/palette';
+import {
+  errorColor,
+  primary,
+  secondary,
+  whiteBackground,
+} from './common/style/palette';
 
 const theme = createMuiTheme({
   palette: {
@@ -11,7 +15,7 @@ const theme = createMuiTheme({
       main: secondary,
     },
     error: {
-      main: red.A400,
+      main: errorColor,
     },
     background: {
       default: whiteBackground,

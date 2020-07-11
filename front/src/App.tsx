@@ -8,6 +8,7 @@ import { Router } from 'react-router-dom';
 import type { History } from 'history';
 import ErrorComponent from './common/misc/ErrorComponent';
 import theme from './theme';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
 
 export const ENV_VARS = import.meta.env;
@@ -23,6 +24,7 @@ const App: React.FunctionComponent<Props> = ({ history }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <ErrorBoundary FallbackComponent={ErrorComponent}>
         <ApolloProvider client={apolloClient}>
           <Router history={history}>

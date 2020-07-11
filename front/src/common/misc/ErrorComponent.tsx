@@ -1,6 +1,6 @@
 import React from 'react';
 import type CSS from 'csstype';
-import { primary, whiteBackground } from '../style/palette';
+import { errorColor, primary, whiteBackground } from '../style/palette';
 
 const style: CSS.Properties = {
   display: 'flex',
@@ -8,7 +8,7 @@ const style: CSS.Properties = {
   flexDirection: 'column',
   alignItems: 'center',
   backgroundColor: whiteBackground,
-  color: primary,
+  color: errorColor,
   fontSize: '15vh',
   fontWeight: 'bolder',
   padding: '5vh',

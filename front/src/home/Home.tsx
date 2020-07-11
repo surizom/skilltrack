@@ -6,18 +6,18 @@ const style: CSS.Properties = {
   display: 'flex',
   flex: 1,
   flexDirection: 'column',
-  alignItems: 'center',
+  alignContent: 'center',
+  justifyContent: 'center',
   backgroundColor: whiteBackground,
   color: primary,
   fontSize: '10vh',
   fontWeight: 'bold',
   padding: '5vh',
+  textAlign: 'center',
 };
 
 const Home: React.FunctionComponent = () => (
-  <div style={style}>
-    <div>Welcome to SkillTrack !</div>
-  </div>
+  <div style={style}>Welcome to SkillTrack !</div>
 );
 
 export default Home;

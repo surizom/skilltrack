@@ -1,6 +1,7 @@
 import React from 'react';
 import type CSS from 'csstype';
-import { primary, whiteBackground } from '../style/palette';
+import { primary, secondary, whiteBackground } from '../style/palette';
+import { CircularProgress } from '@material-ui/core';
 
 const style: CSS.Properties = {
   display: 'flex',
@@ -14,9 +15,9 @@ const style: CSS.Properties = {
   padding: '5vh',
 };
 
-const LoadingComponent: React.FunctionComponent = () => (
+const LoadingComponent = () => (
   <div style={style}>
-    <div>Loading ...</div>
+    <CircularProgress color="secondary" />
   </div>
 );
 

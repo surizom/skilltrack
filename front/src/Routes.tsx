@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router';
 import Main from './common/generalLayout/Main';
+import LoadingComponent from './common/misc/LoadingComponent';
 
 const SkillsPage = lazy(() => import('./skills/SkillsPage'));
 const Home = lazy(() => import('./home/Home'));
@@ -13,7 +14,7 @@ export const ROUTE_PATHS = {
 };
 
 const Routes = () => (
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense fallback={<LoadingComponent />}>
     <Switch>
       <Main>
         <Route
