@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignContent: 'center',
     justifyContent: 'center',
-    fontSize: '10vh',
+    fontSize: '8vh',
     fontWeight: 'bold',
     padding: '5vh',
     textAlign: 'center',

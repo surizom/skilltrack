@@ -144,7 +144,11 @@ const Sidebar: React.FunctionComponent = () => {
         <Divider />
         <List>
           {sidebarElements().map((element) => (
-            <ListItem button key={element.name}>
+            <ListItem
+              button
+              key={element.name}
+              onClick={() => history.push(element.link)}
+            >
               <ListItemIcon>
                 <SvgIcon component={element.icon} />
               </ListItemIcon>
