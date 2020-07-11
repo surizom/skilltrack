@@ -14,9 +14,9 @@ export const ROUTE_PATHS = {
 };
 
 const Routes = () => (
-  <Suspense fallback={<LoadingComponent />}>
-    <Switch>
-      <Main>
+  <Main>
+    <Suspense fallback={<LoadingComponent />}>
+      <Switch>
         <Route
           key={ROUTE_PATHS.home}
           path={ROUTE_PATHS.home}
@@ -35,9 +35,9 @@ const Routes = () => (
           render={() => <ErrorComponent />}
           exact={true}
         />
-      </Main>
-    </Switch>
-  </Suspense>
+      </Switch>
+    </Suspense>
+  </Main>
 );
 
 export default Routes;

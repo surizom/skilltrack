@@ -1,23 +1,28 @@
 import React from 'react';
-import type CSS from 'csstype';
-import { errorColor, primary, whiteBackground } from '../style/palette';
+import { errorColor } from '../style/palette';
+import { Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-const style: CSS.Properties = {
-  display: 'flex',
-  flex: 1,
-  flexDirection: 'column',
-  alignItems: 'center',
-  backgroundColor: whiteBackground,
-  color: errorColor,
-  fontSize: '15vh',
-  fontWeight: 'bolder',
-  padding: '5vh',
+const useStyles = makeStyles((theme) => ({
+  errorComponentContainer: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: errorColor,
+    fontSize: '4vh',
+    padding: '8vh',
+  },
+}));
+
+const ErrorComponent: React.FunctionComponent = () => {
+  const classes = useStyles();
+  return (
+    <Box className={classes.errorComponentContainer}>
+      <div>An error has occured :(</div>
+    </Box>
+  );
 };
-
-const ErrorComponent: React.FunctionComponent = () => (
-  <div style={style}>
-    <div>An error has occured :(</div>
-  </div>
-);
 
 export default ErrorComponent;

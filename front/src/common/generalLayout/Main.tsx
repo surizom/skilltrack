@@ -30,7 +30,6 @@ const Main: React.FunctionComponent<Props> = ({ children }) => (
   <>
     <ModalProvider>
       <Modal />
-
       <div style={containerStyle}>
         <Sidebar />
         <div style={childrenContainerStyle}>{children}</div>
