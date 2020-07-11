@@ -7,6 +7,8 @@ import Routes from './Routes';
 import { Router } from 'react-router-dom';
 import type { History } from 'history';
 import ErrorComponent from './common/misc/ErrorComponent';
+import theme from './theme';
+import { ThemeProvider } from '@material-ui/core';
 
 export const ENV_VARS = import.meta.env;
 
@@ -20,13 +22,15 @@ const App: React.FunctionComponent<Props> = ({ history }) => {
   });
 
   return (
-    <ErrorBoundary FallbackComponent={ErrorComponent}>
-      <ApolloProvider client={apolloClient}>
-        <Router history={history}>
-          <Routes />
-        </Router>
-      </ApolloProvider>
-    </ErrorBoundary>
+    <ThemeProvider theme={theme}>
+      <ErrorBoundary FallbackComponent={ErrorComponent}>
+        <ApolloProvider client={apolloClient}>
+          <Router history={history}>
+            <Routes />
+          </Router>
+        </ApolloProvider>
+      </ErrorBoundary>
+    </ThemeProvider>
   );
 };
 

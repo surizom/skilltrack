@@ -39,13 +39,7 @@ const Modal: React.FunctionComponent = () => {
   }
 
   return (
-    <div
-      key={
-        modalContext.openedModal ? modalContext.openedModal.toString() : 'empty'
-      }
-      style={modalContainerStyle}
-      onClick={modalContext.closeModal}
-    >
+    <div style={modalContainerStyle} onClick={modalContext.closeModal}>
       {activeModalElement}
     </div>
   );
