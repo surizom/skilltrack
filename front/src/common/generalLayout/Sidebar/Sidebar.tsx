@@ -43,7 +43,7 @@ const Sidebar: React.FunctionComponent = () => {
               onChange={darkModeContext.switchThemeColor}
             />
           }
-          labelPlacement="top"
+          labelPlacement="bottom"
           label="Dark Mode"
         />
       </FormGroup>

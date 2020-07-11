@@ -1,19 +1,24 @@
 import React from 'react';
-import type CSS from 'csstype';
 import SkillList from './SkillList';
 import { SMALL_SCREEN_TRESHLOD } from '../common/style/responsive';
+import { makeStyles } from '@material-ui/core/styles';
+import { Box } from '@material-ui/core';
 
-const style: CSS.Properties = {
-  display: 'flex',
-  flexDirection: 'column',
-  flex: window.innerWidth > SMALL_SCREEN_TRESHLOD ? 1 : undefined,
-};
+const useStyles = makeStyles((theme) => ({
+  skillPage: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: window.innerWidth > SMALL_SCREEN_TRESHLOD ? 1 : undefined,
+  },
+}));
 
 const SkillsPage: React.FunctionComponent = () => {
+  const classes = useStyles();
+
   return (
-    <div style={style}>
+    <Box className={classes.skillPage}>
       <SkillList />
-    </div>
+    </Box>
   );
 };
 
