@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { SKILLS } from './queries';
 import type { Skill } from '../generated/graphql';
@@ -6,6 +6,8 @@ import MaterialTable, { Icons } from 'material-table';
 import { tableIcons } from '../common/style/dataTableIcons';
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { MODAL, ModalContext } from '../common/modals/common/ModalProvider';
+import { Add } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   skillListContainer: {
@@ -17,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
 
 const SkillList: React.FunctionComponent = () => {
   const classes = useStyles();
+
+  const modalContext = useContext(ModalContext);
 
   const { loading, error, data } = useQuery<{ skills: Skill[] }>(SKILLS);
 
@@ -37,6 +41,14 @@ const SkillList: React.FunctionComponent = () => {
         data={data.skills}
         title="Skills"
         icons={tableIcons}
+        actions={[
+          {
+            icon: Add,
+            tooltip: 'Add Skill',
+            isFreeAction: true,
+            onClick: (event) => modalContext.openModal(MODAL.SKILL_CREATION),
+          },
+        ]}
       />
     </Box>
   );
