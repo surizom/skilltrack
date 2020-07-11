@@ -1,5 +1,4 @@
 import React from 'react';
-import { errorColor } from '../style/palette';
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -10,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    color: errorColor,
+    color: theme.palette.error.main,
     fontSize: '4vh',
     padding: '8vh',
   },

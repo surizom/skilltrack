@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowY: 'auto',
     height: '100%',
+    backgroundColor: theme.palette.background.default,
   },
   containerStyle: {
     position: 'absolute',
