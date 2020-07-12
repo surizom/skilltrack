@@ -15,9 +15,11 @@ import {
   Theme,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import type { Skill } from '../../generated/graphql';
+import type { MutationCreateSkillArgs, Skill } from '../../generated/graphql';
 import { SkillImportance, SkillImportanceLabel } from '../../generated/graphql';
 import { formatEnum } from '../util/utils';
+import { useMutation } from '@apollo/react-hooks';
+import { CREATE_SKILL } from '../../skills/queries';
 
 interface Props {
   isOpen: boolean;
@@ -39,12 +41,14 @@ const useStyles = makeStyles((theme: Theme) =>
 const SkillCreationModal: React.FunctionComponent<Props> = (props) => {
   const classes = useStyles();
 
-  const [skillToCreate, setSkillToCreate] = React.useState<Partial<Skill>>({});
+  const [skillToCreate, setSkillToCreate] = React.useState<
+    Partial<MutationCreateSkillArgs>
+  >({});
 
   const setImportance = (event: React.ChangeEvent<{ value: unknown }>) => {
     setSkillToCreate({
       ...skillToCreate,
-      importance: event.target.value as SkillImportance,
+      importance: event.target.value as SkillImportanceLabel,
     });
   };
 
@@ -52,7 +56,20 @@ const SkillCreationModal: React.FunctionComponent<Props> = (props) => {
     setSkillToCreate({ ...skillToCreate, name: event.target.value as string });
   };
 
-  console.log(skillToCreate);
+  const setResourceUrl = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSkillToCreate({
+      ...skillToCreate,
+      resourceUrl: event.target.value as string,
+    });
+  };
+
+  const [createSkill, { data }] = useMutation<MutationCreateSkillArgs>(
+    CREATE_SKILL,
+  );
+
+  const createSkillAndClose = () => {
+    createSkill({ variables: { ...skillToCreate } }).then(props.handleClose);
+  };
 
   return (
     <div>
@@ -82,12 +99,23 @@ const SkillCreationModal: React.FunctionComponent<Props> = (props) => {
                 id="importance-simple-select"
                 onChange={setImportance}
               >
-                {Object.keys(SkillImportanceLabel).map((importance) => (
+                {Object.values(SkillImportanceLabel).map((importance) => (
                   <MenuItem value={importance} key={importance}>
                     {formatEnum(importance)}
                   </MenuItem>
                 ))}
               </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="resourceUrl"
+                label="Resource Url"
+                type="text"
+                fullWidth
+                onChange={setResourceUrl}
+              />
             </FormControl>
           </FormGroup>
         </DialogContent>
@@ -95,7 +123,7 @@ const SkillCreationModal: React.FunctionComponent<Props> = (props) => {
           <Button onClick={props.handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={props.handleClose} color="primary">
+          <Button onClick={createSkillAndClose} color="primary">
             Create
           </Button>
         </DialogActions>
