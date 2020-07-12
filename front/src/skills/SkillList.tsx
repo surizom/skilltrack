@@ -8,6 +8,7 @@ import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { MODAL, ModalContext } from '../common/modals/common/ModalProvider';
 import { Add } from '@material-ui/icons';
+import { formatEnum } from '../common/util/utils';
 
 const useStyles = makeStyles((theme) => ({
   skillListContainer: {
@@ -38,7 +39,10 @@ const SkillList: React.FunctionComponent = () => {
           { title: 'Skill', field: 'name' },
           { title: 'Importance', field: 'importance' },
         ]}
-        data={data.skills}
+        data={data.skills.map((data) => ({
+          ...data,
+          importance: formatEnum(data.importance),
+        }))}
         title="Skills"
         icons={tableIcons}
         actions={[
