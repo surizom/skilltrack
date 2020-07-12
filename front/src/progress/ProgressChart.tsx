@@ -3,13 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  progressionChart: { margin: '2vw' },
+  progressChart: { margin: '2vw' },
 }));
 
-const ProgressionChart: React.FunctionComponent = () => {
+const ProgressChart: React.FunctionComponent = () => {
   const classes = useStyles();
 
-  return <Box className={classes.progressionChart}></Box>;
+  return <Box className={classes.progressChart}></Box>;
 };
 
-export default ProgressionChart;
+export default ProgressChart;

@@ -19,8 +19,8 @@ export const sidebarElements = () => {
     icon: HomeIcon,
   });
   sidebarElements.push({
-    name: 'Progression',
-    link: ROUTE_PATHS.progression,
+    name: 'Progress',
+    link: ROUTE_PATHS.progress,
     icon: TrendingUp,
   });
   sidebarElements.push({
