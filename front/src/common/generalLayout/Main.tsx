@@ -12,19 +12,19 @@ interface Props {
 
 const useStyles = makeStyles((theme) => ({
   childrenContainerStyle: {
+    position: 'absolute',
     display: 'flex',
     flex: 1,
     justifyContent: 'center',
     overflowY: 'auto',
     height: '100%',
+    width: '100%',
     backgroundColor: theme.palette.background.default,
   },
   containerStyle: {
     position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+    height: '100%',
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
   },
