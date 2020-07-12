@@ -4,6 +4,7 @@ import fr.skilltrack.SkillService;
 import fr.skilltrack.entities.Skill;
 import fr.skilltrack.entities.SkillImportance;
 import graphql.kickstart.tools.GraphQLMutationResolver;
+import io.micrometer.core.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -16,8 +17,8 @@ public class SkillMutation implements GraphQLMutationResolver {
     this.skillService = skillService;
   }
 
-  public Skill createSkill(String name, SkillImportance importance) {
-    return this.skillService.createSkill(name, importance);
+  public Skill createSkill(String name, SkillImportance importance, @Nullable String resourceUrl) {
+    return this.skillService.createSkill(name, importance, resourceUrl);
   }
 
   public Optional<Skill> evaluateSkill(int skillId, int level) {

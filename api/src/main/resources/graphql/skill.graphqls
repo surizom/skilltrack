@@ -2,6 +2,7 @@ type Skill{
     id: ID!,
     name: String!,
     importance: SkillImportance!
+    resourceUrl: String,
     evaluations: [SkillEvaluation]
 }
 
@@ -25,6 +26,6 @@ type Query{
 }
 
 type Mutation {
-    createSkill(name: String!,importance: SkillImportance!): Skill
+    createSkill(name: String!,importance: SkillImportance!, resourceUrl: String): Skill
     evaluateSkill(skillId: Int!, level: Int!): Skill
 }

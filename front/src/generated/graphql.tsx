@@ -20,6 +20,7 @@ export type Mutation = {
 export type MutationCreateSkillArgs = {
   name: Scalars['String'];
   importance: SkillImportance;
+  resourceUrl?: Maybe<Scalars['String']>;
 };
 
 
@@ -55,6 +56,7 @@ export type Skill = {
   id: Scalars['ID'];
   name: Scalars['String'];
   importance: SkillImportance;
+  resourceUrl?: Maybe<Scalars['String']>;
   evaluations?: Maybe<Array<Maybe<SkillEvaluation>>>;
 };
 

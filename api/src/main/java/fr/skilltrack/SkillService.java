@@ -28,12 +28,13 @@ public class SkillService {
     return skills.values().stream().filter(skill -> skill.getId() == id).findFirst();
   }
 
-  public Skill createSkill(String name, SkillImportance importance) {
+  public Skill createSkill(String name, SkillImportance importance, String resourceUrl) {
     Skill skill = new Skill();
     this.id = this.id + 1;
     skill.setId(this.id);
     skill.setImportance(importance);
     skill.setName(name);
+    skill.setResourceUrl(resourceUrl);
     skills.put(id, skill);
     return skill;
   }

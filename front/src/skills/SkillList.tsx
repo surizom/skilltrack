@@ -7,8 +7,8 @@ import { tableIcons } from '../common/style/dataTableIcons';
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { MODAL, ModalContext } from '../common/modals/common/ModalProvider';
-import { Add } from '@material-ui/icons';
-import { formatEnum } from '../common/util/utils';
+import { Add, CallMade } from '@material-ui/icons';
+import { formatEnum, openExternalLink } from '../common/util/utils';
 
 const useStyles = makeStyles((theme) => ({
   skillListContainer: {
@@ -52,6 +52,13 @@ const SkillList: React.FunctionComponent = () => {
             isFreeAction: true,
             onClick: (event) => modalContext.openModal(MODAL.SKILL_CREATION),
           },
+          (rowData) => ({
+            icon: CallMade,
+            tooltip: 'Go to resource',
+            disabled: !rowData.resourceUrl,
+            onClick: (event) =>
+              openExternalLink(rowData.resourceUrl ?? 'about:blank'),
+          }),
         ]}
       />
     </Box>
