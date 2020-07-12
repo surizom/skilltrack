@@ -6,7 +6,12 @@ graphql:
     # if you want to @ExceptionHandler annotation for custom GraphQLErrors
     exception-handlers-enabled: true
     contextSetting: PER_REQUEST_WITH_INSTRUMENTATION
-
 spring:
   profiles:
     active: dev,init
+server:
+  port: 8080
+logging:
+  level:
+    root: INFO
+    fr.skilltrack.SkilltrackApplication: DEBUG
