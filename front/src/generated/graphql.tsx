@@ -19,7 +19,7 @@ export type Mutation = {
 
 export type MutationCreateSkillArgs = {
   name: Scalars['String'];
-  importance: Scalars['Int'];
+  importance: SkillImportance;
 };
 
 
@@ -54,7 +54,7 @@ export type Skill = {
   __typename?: 'Skill';
   id: Scalars['ID'];
   name: Scalars['String'];
-  importance: Scalars['Int'];
+  importance: SkillImportance;
   evaluations?: Maybe<Array<Maybe<SkillEvaluation>>>;
 };
 
@@ -64,5 +64,12 @@ export type SkillEvaluation = {
   timestamp: Scalars['Int'];
   level: Scalars['Int'];
 };
+
+export enum SkillImportance {
+  Optional = 'Optional',
+  GoodToKnow = 'Good_to_know',
+  Important = 'Important',
+  Vital = 'Vital'
+}
 
 

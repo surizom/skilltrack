@@ -2,6 +2,7 @@ package fr.skilltrack.resolvers;
 
 import fr.skilltrack.SkillService;
 import fr.skilltrack.entities.Skill;
+import fr.skilltrack.entities.SkillImportance;
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ public class SkillMutation implements GraphQLMutationResolver {
     this.skillService = skillService;
   }
 
-  public Skill createSkill(String name, int importance) {
+  public Skill createSkill(String name, SkillImportance importance) {
     return this.skillService.createSkill(name, importance);
   }
 

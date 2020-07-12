@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import static fr.skilltrack.entities.SkillImportance.*;
+
 @Service
 @Profile("init")
 public class DataInitService {
@@ -15,12 +17,12 @@ public class DataInitService {
   public DataInitService(SkillService skillService) {
     LOG.warn("Data initialization in progress");
 
-    skillService.createSkill("CSS", 4);
-    skillService.createSkill("React", 4);
-    skillService.createSkill("JavaScript", 2);
-    skillService.createSkill("Java", 5);
-    skillService.createSkill("Spring", 6);
-    skillService.createSkill("GraphQL", 8);
+    skillService.createSkill("CSS", Important);
+    skillService.createSkill("React", Vital);
+    skillService.createSkill("JavaScript", Good_to_know);
+    skillService.createSkill("Java", Important);
+    skillService.createSkill("Spring", Good_to_know);
+    skillService.createSkill("GraphQL", Optional);
 
     skillService.evaluateSkill(1, 1);
     skillService.evaluateSkill(2, 3);

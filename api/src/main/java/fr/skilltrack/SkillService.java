@@ -2,6 +2,7 @@ package fr.skilltrack;
 
 import fr.skilltrack.entities.Skill;
 import fr.skilltrack.entities.SkillEvaluation;
+import fr.skilltrack.entities.SkillImportance;
 import fr.skilltrack.time.TimeProvider;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class SkillService {
     return skills.values().stream().filter(skill -> skill.getId() == id).findFirst();
   }
 
-  public Skill createSkill(String name, int importance) {
+  public Skill createSkill(String name, SkillImportance importance) {
     Skill skill = new Skill();
     this.id = this.id + 1;
     skill.setId(this.id);

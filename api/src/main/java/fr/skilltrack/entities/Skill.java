@@ -16,7 +16,7 @@ public class Skill implements Serializable {
 
   private String name;
 
-  private int importance;
+  private SkillImportance importance;
 
   private List<SkillEvaluation> evaluations = new ArrayList<>();
 }
