@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from 'react';
+import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import type { PaletteType } from '@material-ui/core';
 
 interface Props {
@@ -21,8 +21,17 @@ export const DarkModeContext = createContext<ModalContextProps>(
   INITIAL_CONTEXT_VALUE,
 );
 
+const THEME_LOCAL_STORAGE_KEY = 'theme';
+
 const DarkModeProvider: React.FunctionComponent<Props> = ({ children }) => {
-  const [themeColor, setThemeColor] = useState<PaletteType>('light');
+  const initialTheme =
+    localStorage.getItem(THEME_LOCAL_STORAGE_KEY) === 'dark' ? 'dark' : 'light';
+
+  const [themeColor, setThemeColor] = useState<PaletteType>(initialTheme);
+
+  useEffect(() => localStorage.setItem(THEME_LOCAL_STORAGE_KEY, themeColor), [
+    themeColor,
+  ]);
 
   const switchThemeColor = () => {
     switch (themeColor) {
