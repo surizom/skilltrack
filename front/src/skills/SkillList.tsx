@@ -9,6 +9,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { MODAL, ModalContext } from '../common/modals/common/ModalProvider';
 import { Add, CallMade } from '@material-ui/icons';
 import { formatEnum, openExternalLink } from '../common/util/utils';
+import LoadingComponent from '../common/misc/LoadingComponent';
+import ErrorComponent from '../common/misc/ErrorComponent';
+import FullPageMessage from '../common/misc/FullPageMessage';
 
 const useStyles = makeStyles((theme) => ({
   skillListContainer: {
@@ -27,11 +30,11 @@ const SkillList: React.FunctionComponent = () => {
 
   const { loading, error, data } = useQuery<{ skills: Skill[] }>(SKILLS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  if (loading) return <LoadingComponent />;
+  if (error) return <ErrorComponent />;
 
   if (!data || !data.skills || !data.skills.length) {
-    return <div>No skills to show</div>;
+    return <FullPageMessage message={'No skills to show'} />;
   }
 
   return (
