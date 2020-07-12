@@ -19,7 +19,7 @@ export type Mutation = {
 
 export type MutationCreateSkillArgs = {
   name: Scalars['String'];
-  importance: SkillImportance;
+  importance: SkillImportanceLabel;
   resourceUrl?: Maybe<Scalars['String']>;
 };
 
@@ -67,7 +67,13 @@ export type SkillEvaluation = {
   level: Scalars['Int'];
 };
 
-export enum SkillImportance {
+export type SkillImportance = {
+  __typename?: 'SkillImportance';
+  label: SkillImportanceLabel;
+  value: Scalars['Int'];
+};
+
+export enum SkillImportanceLabel {
   Optional = 'Optional',
   GoodToKnow = 'Good_to_know',
   Important = 'Important',

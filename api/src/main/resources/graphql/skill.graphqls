@@ -6,7 +6,12 @@ type Skill{
     evaluations: [SkillEvaluation]
 }
 
-enum SkillImportance{
+type SkillImportance{
+    label: SkillImportanceLabel!
+    value: Int !
+}
+
+enum SkillImportanceLabel{
     Optional,
     Good_to_know,
     Important,
@@ -26,6 +31,6 @@ type Query{
 }
 
 type Mutation {
-    createSkill(name: String!,importance: SkillImportance!, resourceUrl: String): Skill
+    createSkill(name: String!,importance: SkillImportanceLabel!, resourceUrl: String): Skill
     evaluateSkill(skillId: Int!, level: Int!): Skill
 }

@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import static fr.skilltrack.entities.SkillImportance.*;
+import static fr.skilltrack.entities.SkillImportanceLabel.*;
 
 @Service
 @Profile("init")

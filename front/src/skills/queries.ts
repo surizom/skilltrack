@@ -5,7 +5,10 @@ export const SKILLS = gql`
     skills(count: 10000) {
       name
       id
-      importance
+      importance {
+        label
+        value
+      }
       resourceUrl
     }
   }

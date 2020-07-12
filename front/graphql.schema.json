@@ -40,7 +40,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "ENUM",
-                    "name": "SkillImportance",
+                    "name": "SkillImportanceLabel",
                     "ofType": null
                   }
                 },
@@ -275,7 +275,7 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "ENUM",
+                "kind": "OBJECT",
                 "name": "SkillImportance",
                 "ofType": null
               }
@@ -377,8 +377,51 @@
         "possibleTypes": null
       },
       {
-        "kind": "ENUM",
+        "kind": "OBJECT",
         "name": "SkillImportance",
+        "description": "",
+        "fields": [
+          {
+            "name": "label",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "SkillImportanceLabel",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "value",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "SkillImportanceLabel",
         "description": "",
         "fields": null,
         "inputFields": null,

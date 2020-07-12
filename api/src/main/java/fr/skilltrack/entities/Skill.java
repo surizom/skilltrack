@@ -16,9 +16,16 @@ public class Skill implements Serializable {
 
   private String name;
 
-  private SkillImportance importance;
+  private SkillImportanceLabel importance;
 
   private String resourceUrl;
 
   private List<SkillEvaluation> evaluations = new ArrayList<>();
+
+  public SkillImportance importance() {
+    SkillImportance importance = new SkillImportance();
+    importance.setLabel(this.importance);
+    importance.setValue(this.importance.importanceValue());
+    return importance;
+  }
 }

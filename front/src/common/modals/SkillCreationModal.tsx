@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import type { Skill } from '../../generated/graphql';
-import { SkillImportance } from '../../generated/graphql';
+import { SkillImportance, SkillImportanceLabel } from '../../generated/graphql';
 import { formatEnum } from '../util/utils';
 
 interface Props {
@@ -82,7 +82,7 @@ const SkillCreationModal: React.FunctionComponent<Props> = (props) => {
                 id="importance-simple-select"
                 onChange={setImportance}
               >
-                {Object.keys(SkillImportance).map((importance) => (
+                {Object.keys(SkillImportanceLabel).map((importance) => (
                   <MenuItem value={importance} key={importance}>
                     {formatEnum(importance)}
                   </MenuItem>

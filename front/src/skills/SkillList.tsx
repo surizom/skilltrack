@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { SKILLS } from './queries';
-import type { Skill } from '../generated/graphql';
+import type { Skill, SkillImportance } from '../generated/graphql';
 import MaterialTable, { Icons } from 'material-table';
 import { tableIcons } from '../common/style/dataTableIcons';
 import { Box } from '@material-ui/core';
@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
     margin: '2vw',
   },
 }));
+
+const renderImportance = (skill: Skill) => formatEnum(skill.importance.label);
 
 const SkillList: React.FunctionComponent = () => {
   const classes = useStyles();
@@ -37,12 +39,14 @@ const SkillList: React.FunctionComponent = () => {
       <MaterialTable
         columns={[
           { title: 'Skill', field: 'name' },
-          { title: 'Importance', field: 'importance' },
+          {
+            title: 'Importance',
+            field: 'importance',
+            render: renderImportance,
+            customSort: (a, b) => a.importance.value - b.importance.value,
+          },
         ]}
-        data={data.skills.map((data) => ({
-          ...data,
-          importance: formatEnum(data.importance),
-        }))}
+        data={data.skills}
         title="Skills"
         icons={tableIcons}
         actions={[
