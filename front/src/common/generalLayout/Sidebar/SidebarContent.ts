@@ -3,6 +3,7 @@ import ClearAllIcon from '@material-ui/icons/ClearAll';
 import HomeIcon from '@material-ui/icons/Home';
 import type { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import type { SvgIconTypeMap } from '@material-ui/core/SvgIcon/SvgIcon';
+import { TrendingUp } from '@material-ui/icons';
 
 export interface sidebarElementInfo {
   name: string;
@@ -16,6 +17,11 @@ export const sidebarElements = () => {
     name: 'Home',
     link: ROUTE_PATHS.home,
     icon: HomeIcon,
+  });
+  sidebarElements.push({
+    name: 'Progression',
+    link: ROUTE_PATHS.progression,
+    icon: TrendingUp,
   });
   sidebarElements.push({
     name: 'Skills',

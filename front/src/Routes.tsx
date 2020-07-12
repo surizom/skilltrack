@@ -11,6 +11,7 @@ export const ROUTE_PATHS = {
   home: '/',
   skills: '/skills',
   error: '/error',
+  progression: '/progression',
 };
 
 const Routes = () => (
