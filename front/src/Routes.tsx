@@ -6,6 +6,7 @@ import LoadingComponent from './common/misc/LoadingComponent';
 const SkillsPage = lazy(() => import('./skills/SkillsPage'));
 const Home = lazy(() => import('./home/Home'));
 const ErrorComponent = lazy(() => import('./common/misc/ErrorComponent'));
+const ProgressPage = lazy(() => import('./progress/ProgressPage'));
 
 export const ROUTE_PATHS = {
   home: '/',
@@ -28,6 +29,12 @@ const Routes = () => (
           key={ROUTE_PATHS.skills}
           path={ROUTE_PATHS.skills}
           render={() => <SkillsPage />}
+          exact={true}
+        />
+        <Route
+          key={ROUTE_PATHS.progress}
+          path={ROUTE_PATHS.progress}
+          render={() => <ProgressPage />}
           exact={true}
         />
         <Route
