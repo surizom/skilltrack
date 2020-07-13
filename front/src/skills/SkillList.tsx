@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { SKILLS } from './queries';
-import type { Skill, SkillImportance } from '../generated/graphql';
-import MaterialTable, { Icons } from 'material-table';
+import type { Skill } from '../generated/graphql';
+import MaterialTable from 'material-table';
 import { tableIcons } from '../common/style/dataTableIcons';
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
