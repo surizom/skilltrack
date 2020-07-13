@@ -15,3 +15,11 @@ logging:
   level:
     root: INFO
     fr.skilltrack.SkilltrackApplication: DEBUG
+
+graphiql:
+  mapping: /graphiql
+  enabled: true
+  pageTitle: SkillQL
+  cdn:
+    enabled: true
+    version: 0.13.0
