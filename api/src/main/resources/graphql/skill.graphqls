@@ -3,7 +3,12 @@ type Skill{
     name: String!,
     importance: SkillImportance!
     resourceUrl: String,
-    evaluations: [SkillEvaluation]
+    evaluationChart: EvaluationChart
+}
+
+type EvaluationChart{
+    dateLabels: [String],
+    skillLevels: [Int]
 }
 
 type SkillImportance{
@@ -19,15 +24,12 @@ enum SkillImportanceLabel{
 }
 
 type SkillEvaluation{
-    skillId: Int!
-    timestamp: Int!
     level: Int!
 }
 
 type Query{
     skills(count: Int): [Skill]
     skill(id: ID): Skill
-    evaluations(skillId:Int): [SkillEvaluation]
 }
 
 type Mutation {

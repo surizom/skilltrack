@@ -4,8 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 @Data
 @EqualsAndHashCode
@@ -20,7 +19,7 @@ public class Skill implements Serializable {
 
   private String resourceUrl;
 
-  private List<SkillEvaluation> evaluations = new ArrayList<>();
+  private HashMap<Integer, SkillEvaluation> evaluations = new HashMap<>();
 
   public SkillImportance importance() {
     SkillImportance importance = new SkillImportance();

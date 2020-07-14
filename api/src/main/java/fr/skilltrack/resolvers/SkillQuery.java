@@ -1,8 +1,9 @@
 package fr.skilltrack.resolvers;
 
+import fr.skilltrack.SkillEvaluationChartService;
 import fr.skilltrack.SkillService;
+import fr.skilltrack.dto.SkillEvaluationChartData;
 import fr.skilltrack.entities.Skill;
-import fr.skilltrack.entities.SkillEvaluation;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 
@@ -13,9 +14,12 @@ import java.util.Optional;
 public class SkillQuery implements GraphQLQueryResolver {
 
   private SkillService skillService;
+  private SkillEvaluationChartService skillEvaluationChartService;
 
-  public SkillQuery(SkillService skillService) {
+  public SkillQuery(
+      SkillService skillService, SkillEvaluationChartService skillEvaluationChartService) {
     this.skillService = skillService;
+    this.skillEvaluationChartService = skillEvaluationChartService;
   }
 
   public List<Skill> getSkills(final int count) {
@@ -26,7 +30,8 @@ public class SkillQuery implements GraphQLQueryResolver {
     return this.skillService.getSkill(id);
   }
 
-  public List<SkillEvaluation> getEvaluations(int skillId) {
-    return this.skillService.getSkillEvaluations(skillId);
+  public SkillEvaluationChartData evaluationChart(int skillId) {
+    return this.skillEvaluationChartService.evaluationChartData(
+        skillService.getSkill(skillId).orElseGet(Skill::new));
   }
 }
