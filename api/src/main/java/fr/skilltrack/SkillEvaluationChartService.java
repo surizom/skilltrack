@@ -55,7 +55,7 @@ public class SkillEvaluationChartService {
   private Integer dateEvaluationValue(
       LocalDate date, HashMap<Integer, SkillEvaluation> evaluations) {
     return evaluations
-        .getOrDefault(this.timeProvider.numberOfDaysSinceBeginning(date), null)
+        .getOrDefault(this.timeProvider.numberOfDaysSinceBeginning(date), new SkillEvaluation())
         .getLevel();
   }
 

@@ -6,5 +6,5 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode
 public class SkillEvaluation {
-  private int level;
+  private int level = 0;
 }
