@@ -12,6 +12,12 @@ import java.util.stream.Collectors;
 @Service
 public class SkillService {
 
+  private TimeProvider timeProvider;
+
+  public SkillService(TimeProvider timeProvider) {
+    this.timeProvider = timeProvider;
+  }
+
   private int id = 0;
 
   private Map<Integer, Skill> skills = new HashMap<>();
@@ -39,10 +45,6 @@ public class SkillService {
     return skill;
   }
 
-  public List<SkillEvaluation> getSkillEvaluations(int skillId) {
-    return this.getSkill(skillId).orElse(new Skill()).getEvaluations();
-  }
-
   public Optional<Skill> evaluateSkill(int skillId, int level) {
     Skill skillToEvaluate = skills.getOrDefault(skillId, null);
 
@@ -52,10 +54,10 @@ public class SkillService {
 
     SkillEvaluation skillEvaluation = new SkillEvaluation();
     skillEvaluation.setLevel(level);
-    skillEvaluation.setSkillId(skillId);
-    skillEvaluation.setTimestamp(TimeProvider.now().getEpochSecond());
 
-    skillToEvaluate.getEvaluations().add(skillEvaluation);
+    skillToEvaluate
+        .getEvaluations()
+        .put(timeProvider.numberOfDaysSinceBeginning(), skillEvaluation);
 
     return Optional.of(skillToEvaluate);
   }
