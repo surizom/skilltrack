@@ -12,8 +12,8 @@ export type Scalars = {
 
 export type EvaluationChart = {
   __typename?: 'EvaluationChart';
-  dateLabels?: Maybe<Array<Maybe<Scalars['String']>>>;
-  skillLevels?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  dateLabels: Array<Scalars['String']>;
+  skillLevels: Array<Scalars['Int']>;
 };
 
 export type Mutation = {
@@ -53,7 +53,7 @@ export type Skill = {
   name: Scalars['String'];
   importance: SkillImportance;
   resourceUrl?: Maybe<Scalars['String']>;
-  evaluationChart?: Maybe<EvaluationChart>;
+  evaluationChart: EvaluationChart;
 };
 
 export type SkillImportance = {

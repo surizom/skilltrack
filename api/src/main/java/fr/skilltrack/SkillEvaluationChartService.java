@@ -4,6 +4,9 @@ import fr.skilltrack.dto.SkillEvaluationChartData;
 import fr.skilltrack.entities.Skill;
 import fr.skilltrack.entities.SkillEvaluation;
 import fr.skilltrack.time.TimeProvider;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -22,7 +25,7 @@ public class SkillEvaluationChartService {
 
   public SkillEvaluationChartData evaluationChartData(Skill skill) {
 
-    Map<String, Integer> evaluationDataWithNoNullValues =
+    SortedMap<String, Integer> evaluationDataWithNoNullValues =
         fillNullValues(evaluationData(skill.getEvaluations()));
 
     SkillEvaluationChartData skillEvaluationChartData = new SkillEvaluationChartData();
@@ -34,47 +37,70 @@ public class SkillEvaluationChartService {
     return skillEvaluationChartData;
   }
 
-  private Map<String, Integer> evaluationData(HashMap<Integer, SkillEvaluation> evaluations) {
+  private SortedSet<EvaluationDataPoint> evaluationData(
+      SortedMap<Integer, SkillEvaluation> evaluations) {
+
+    Comparator<AbstractMap.SimpleEntry<String, Integer>> comparator =
+        Comparator.comparing(AbstractMap.SimpleEntry::getValue);
+
     return timeProvider
         .beginning()
         .datesUntil(timeProvider.today())
         .map(date -> evaluationDataEntry(date, evaluations))
-        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        .sorted()
+        .collect(Collectors.toCollection(TreeSet::new));
   }
 
-  private Map.Entry<String, Integer> evaluationDataEntry(
-      LocalDate date, HashMap<Integer, SkillEvaluation> evaluations) {
-    return new AbstractMap.SimpleEntry<String, Integer>(
-        formatddMM(date), dateEvaluationValue(date, evaluations));
+  private EvaluationDataPoint evaluationDataEntry(
+      LocalDate date, SortedMap<Integer, SkillEvaluation> evaluations) {
+    return new EvaluationDataPoint(formatddMM(date), dateEvaluationValue(date, evaluations));
   }
 
   private String formatddMM(LocalDate date) {
-    return date.format(DateTimeFormatter.ofPattern("dd/MM"));
+    return date.format(DateTimeFormatter.BASIC_ISO_DATE);
   }
 
   private Integer dateEvaluationValue(
-      LocalDate date, HashMap<Integer, SkillEvaluation> evaluations) {
+      LocalDate date, SortedMap<Integer, SkillEvaluation> evaluations) {
     return evaluations
         .getOrDefault(this.timeProvider.numberOfDaysSinceBeginning(date), new SkillEvaluation())
         .getLevel();
   }
 
-  private Map<String, Integer> fillNullValues(Map<String, Integer> evaluationData) {
+  private SortedMap<String, Integer> fillNullValues(SortedSet<EvaluationDataPoint> evaluationData) {
 
-    int currentValue =
-        evaluationData.values().stream().filter(Objects::nonNull).findFirst().orElse(0);
+    int currentValue = 0;
 
-    Map<String, Integer> filledEvaluationData = new HashMap<>();
+    SortedMap<String, Integer> filledEvaluationData = new TreeMap<>();
 
-    for (String date : evaluationData.keySet()) {
-      if (evaluationData.get(date) == null) {
-        filledEvaluationData.put(date, currentValue);
+    for (EvaluationDataPoint evaluationDataPoint : evaluationData) {
+      if (evaluationDataPoint.getValue() == null) {
+        filledEvaluationData.put(evaluationDataPoint.getDate(), currentValue);
       } else {
-        currentValue = evaluationData.get(date);
-        filledEvaluationData.put(date, currentValue);
+        currentValue = evaluationDataPoint.getValue();
+        filledEvaluationData.put(evaluationDataPoint.getDate(), currentValue);
       }
     }
 
     return filledEvaluationData;
+  }
+
+  @Data
+  @EqualsAndHashCode
+  private static class EvaluationDataPoint implements Comparable<EvaluationDataPoint> {
+
+    private String date;
+
+    private Integer value;
+
+    public EvaluationDataPoint(String date, Integer value) {
+      this.date = date;
+      this.value = value;
+    }
+
+    @Override
+    public int compareTo(@NotNull EvaluationDataPoint o) {
+      return this.date.compareTo(o.date);
+    }
   }
 }

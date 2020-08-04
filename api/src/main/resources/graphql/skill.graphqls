@@ -3,12 +3,12 @@ type Skill{
     name: String!,
     importance: SkillImportance!
     resourceUrl: String,
-    evaluationChart: EvaluationChart
+    evaluationChart: EvaluationChart!
 }
 
 type EvaluationChart{
-    dateLabels: [String],
-    skillLevels: [Int]
+    dateLabels: [String!]!
+    skillLevels: [Int!]!
 }
 
 type SkillImportance{
