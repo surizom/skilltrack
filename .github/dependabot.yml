@@ -1,0 +1,19 @@
+version: 2
+# Documentation: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/configuration-options-for-dependency-updates
+updates:
+  - package-ecosystem: "npm"
+    directory: "/front"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "[DEPENDABOT][FRONT]"
+  - package-ecosystem: "maven"
+    directory: "/api"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "[DEPENDABOT][BACK]"
