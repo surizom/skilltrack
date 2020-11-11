@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "apollo-link-http": "1.5.17",
-    "apollo-server-express": "^2.16.1",
+    "apollo-server-express": "^2.19.0",
     "class-validator": "^0.12.2",
     "cls-hooked": "^4.2.2",
     "date-fns": "^2.16.1",
