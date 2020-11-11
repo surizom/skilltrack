@@ -64,7 +64,7 @@
     "integration": "docker-compose -f docker-compose.test.yml build && docker-compose -f docker-compose.test.yml run --rm integration-back-test npm run integration:docker",
     "integration:docker": "npm run test --  --runInBand --config jest.integration.config.js",
     "start": "nodemon",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:ci": "npm run test && npm run lint:report",
     "test:debug": "node --inspect-brk=9228 node_modules/jest/bin/jest.js --runInBand"
   }
