@@ -1,0 +1,14 @@
+*
+!src
+!jest.config.js
+!jest.folders.js
+!jest.snapshotResolver.js
+!jest.integration.config.js
+!setupTest.js
+!package.json
+!package-lock.json
+!.env*
+!tsconfig.json
+!.eslintrc
+!nodemon.json
+!ormconfig.*
