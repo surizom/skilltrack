@@ -17,3 +17,11 @@ updates:
       - "dependencies"
     commit-message:
       prefix: "[DEPENDABOT]"
+  - package-ecosystem: "npm"
+    directory: "/back"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "[DEPENDABOT]"

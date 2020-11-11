@@ -4,14 +4,28 @@ node_js:
 cache:
   directories:
     - front/node_modules
+    - back/node_modules
 jobs:
   include:
-    - stage: install & build
+    - stage: backend install
+      script:
+        - cd back
+        - npm install
+    - stage: backend test
+      script:
+        - cd back
+        - npm run check
+        - npm run test
+    - stage: backend integration
+      script:
+        - cd back
+        - npm run integration:docker
+    - stage: frontend install & build
       script:
         - cd front
         - npm install
         - npm run build
-    - stage: test
+    - stage: frontend test
       script:
         - cd front
         - npm run lint
