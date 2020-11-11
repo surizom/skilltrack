@@ -9,7 +9,6 @@ export const MODAL_Z_INDEX = 50;
 const Modal: React.FunctionComponent = () => {
   const modalContext = useContext(ModalContext);
 
-
   switch (modalContext.openedModal) {
     case MODAL.SKILL_CREATION:
       return (

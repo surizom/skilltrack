@@ -22,13 +22,11 @@ export type Mutation = {
   evaluateSkill?: Maybe<Skill>;
 };
 
-
 export type MutationCreateSkillArgs = {
   name: Scalars['String'];
   importance: SkillImportanceLabel;
   resourceUrl?: Maybe<Scalars['String']>;
 };
-
 
 export type MutationEvaluateSkillArgs = {
   skillId: Scalars['Int'];
@@ -41,11 +39,9 @@ export type Query = {
   skill?: Maybe<Skill>;
 };
 
-
 export type QuerySkillsArgs = {
   count?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySkillArgs = {
   id?: Maybe<Scalars['ID']>;
@@ -70,7 +66,5 @@ export enum SkillImportanceLabel {
   Optional = 'Optional',
   GoodToKnow = 'Good_to_know',
   Important = 'Important',
-  Vital = 'Vital'
+  Vital = 'Vital',
 }
-
-
