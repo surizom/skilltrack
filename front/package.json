@@ -27,7 +27,7 @@
     "@graphql-codegen/cli": "^1.19.1",
     "@graphql-codegen/introspection": "1.16.0",
     "@graphql-codegen/typescript": "1.16.0",
-    "@graphql-codegen/typescript-operations": "1.16.0",
+    "@graphql-codegen/typescript-operations": "1.17.9",
     "@graphql-codegen/typescript-react-apollo": "2.1.1",
     "@pongsatt/graphql-schema-typescript": "^1.0.25",
     "@snowpack/app-scripts-react": "^1.4.0",
