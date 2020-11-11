@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "es6", "esnext.asynciterable", "es2019"],
+    "target": "es2019",
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false
+  },
+  "include": ["src"]
+}

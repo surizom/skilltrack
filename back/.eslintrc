@@ -1,0 +1,44 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "prettier",
+    "filenames",
+    "@taccolaa/typeorm",
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
+    "array-callback-return": "error",
+    "no-var": "error",
+    "curly": "error",
+    "eqeqeq": "error",
+    "default-case": "error",
+    "prettier/prettier": ["error", { "singleQuote": false }],
+    "no-console": "error",
+    "@taccolaa/typeorm/no-double-where-query": "error",
+    "filenames/match-exported": "warn",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-non-null-assertion": 0
+  },
+  "ignorePatterns": ["node_modules/"],
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+  }
+}
