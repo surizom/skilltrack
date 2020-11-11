@@ -11,5 +11,6 @@ jobs:
         - npm run build
     - stage: test
       script:
+        - cd front
         - npm run lint
         - npm run test
