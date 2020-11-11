@@ -8,7 +8,7 @@ updates:
     labels:
       - "dependencies"
     commit-message:
-      prefix: "[DEPENDABOT][FRONT]"
+      prefix: "[DEPENDABOT]"
   - package-ecosystem: "maven"
     directory: "/api"
     schedule:
@@ -16,4 +16,4 @@ updates:
     labels:
       - "dependencies"
     commit-message:
-      prefix: "[DEPENDABOT][BACK]"
+      prefix: "[DEPENDABOT]"
