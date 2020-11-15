@@ -7,7 +7,7 @@ services:
     container_name: app-db
     image: postgres:11.9-alpine
     ports:
-      - 5433:5432
+      - 5435:5435
     environment:
       - POSTGRES_DB=polyconseil
       - POSTGRES_USER=polyconseil
@@ -15,6 +15,7 @@ services:
       - PGDATA=/var/lib/app-db/data
     volumes:
       - ./init-db:/docker-entrypoint-initdb.d
+    command: -p 5435
 
   back:
     container_name: back
@@ -25,7 +26,7 @@ services:
       - 4000:4000
     environment:
       - DB_HOST=app-db
-      - DB_PORT=5432
+      - DB_PORT=5435
       - DB_USERNAME=polyconseil
       - DB_PASSWORD=polyconseil
       - DB_DATABASE=polyconseil
