@@ -6,7 +6,7 @@ services:
   integration-db-test:
     image: mdillon/postgis
     ports:
-      - 5434:5432
+      - 5435:5435
     environment:
       - POSTGRES_DB=polyconseil
       - POSTGRES_USER=polyconseil
@@ -22,7 +22,7 @@ services:
       - .env
     environment:
       - DB_HOST=integration-db-test
-      - DB_PORT=5432
+      - DB_PORT=5435
       - CI
     volumes:
       - ./reports:/app-build/reports
