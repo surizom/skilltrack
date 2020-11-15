@@ -1,0 +1,52 @@
+# docker-compose for test developpement
+# don't deploy it in the production server
+version: "3.7"
+
+services:
+  app-db:
+    container_name: app-db
+    image: postgres:11.9-alpine
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_DB=polyconseil
+      - POSTGRES_USER=polyconseil
+      - POSTGRES_PASSWORD=polyconseil
+      - PGDATA=/var/lib/app-db/data
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+
+  back:
+    container_name: back
+    image: node:alpine
+    working_dir: /app
+    command: "npm run dev"
+    ports:
+      - 4000:4000
+    environment:
+      - DB_HOST=app-db
+      - DB_PORT=5432
+      - DB_USERNAME=polyconseil
+      - DB_PASSWORD=polyconseil
+      - DB_DATABASE=polyconseil
+    volumes:
+      - ./back:/app
+      # Don't mix the node_modules of the host and the container as it might not be the same architecture
+      - /app/node_modules
+    depends_on:
+      - app-db
+
+  front:
+    container_name: front
+    image: node:alpine
+    working_dir: /app
+    command: "npm run start"
+    environment:
+      - PROXY_BACKEND=http://back:4000
+    ports:
+      - 3000:3000
+    volumes:
+      - ./front:/app
+    depends_on:
+      - back
+    tty: true
