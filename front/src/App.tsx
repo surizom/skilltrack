@@ -19,7 +19,8 @@ interface Props {
 
 const App: React.FunctionComponent<Props> = ({ history }) => {
   const apolloClient = new ApolloClient({
-    uri: ENV_VARS.SNOWPACK_PUBLIC_API_URL,
+    uri:
+      ENV_VARS.SNOWPACK_PUBLIC_API_URL + ENV_VARS.SNOWPACK_PUBLIC_GQL_ENDPOINT,
   });
 
   const darkModeContext = useContext(DarkModeContext);
