@@ -2,11 +2,11 @@
 
 ## General guidelines
 
-- Unix philosophy: Logical units of the application (services, functions, components, etc...) should do **one thing** and do it well.
+- [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy): Logical units of the application (services, functions, components, etc...) should do **one thing** and do it well.
 
-- KISS principle: **simple code** is often a synonym for technical excellence
+- [KISS principle](https://fr.wikipedia.org/wiki/Principe_KISS): **simple code** is often a synonym for technical excellence
 
-- Comments are a code smell: they should be used **very conservatively**; as they are a frequent source of confusion, and are rarely useful in the case of a well-written program.
+- Comments are a [code smell](https://en.wikipedia.org/wiki/Code_smell): they should be used **very conservatively**; as they are a frequent source of confusion, and are rarely useful in the case of a well-written program.
 
 - Small is beautiful: files should not be longer than 300 lines of code.
 
