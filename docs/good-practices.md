@@ -56,7 +56,7 @@ Unit tests must conform to the F.I.R.S.T principles of testing :
 - Self-validating : tests must be fully automated, no manual action should be required to check if they pass.
 - Timely: a test is what specifies the application's behavior, and as such it should be written before the code (cf. TDD).
 
-In addition, unit tests should not contain complex scenarios. If that's the case, it means that the tested has more than one responsability, and should therefore be split.
+In addition, unit tests should not contain complex scenarios. If that's the case, it means that the tested logical unit has more than one responsability, and should therefore be split.
 
 Fixtures (object mocks) may be used for unit tests, but the fixtures should remain **small** and **easy to maintain**.
 
