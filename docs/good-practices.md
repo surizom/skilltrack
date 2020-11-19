@@ -81,3 +81,5 @@ ex: _If applied, this commit will_ **remove deprecated methods** / _If applied, 
 ## Other
 
 - Nested ternaries should **absolutely never** be used (``condition ? secondCondition ? A : B : C``).
+
+- Dead code should be deleted at the earliest opportunity.
