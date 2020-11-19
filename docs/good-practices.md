@@ -35,6 +35,8 @@ ex: ``NumberException`` is a poor exception name because it gives no information
 
 - Immutable data structures should be used wherever possible
 
+- Functional patterns (labmda functions, ternaries, `filter`, `map`, `foreach`, `reduce`) should be preferred to their imperative counterparts (`for`, `if-then-else`)
+
 ## Testing
 
 - Every piece of business logic must be unit-tested
@@ -56,4 +58,8 @@ Unit tests must conform to the F.I.R.S.T principles of testing :
 In addition, unit tests should not contain complex scenarios. If that's the case, it means that the tested has more than one responsability, and should therefore be split
 
 Fixtures (object mocks) may be used for unit tests, but the fixtures should remain **small** and **easy to maintain**
+
+## Other
+
+- Nested ternaries should **absolutely never** be used (``condition ? secondCondition ? A : B : C``)
 
