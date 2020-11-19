@@ -26,7 +26,6 @@ Naming variables should require continuous attention from both the developers an
 
 ex: ``NumberException`` is a poor exception name because it gives no information other than the error has to do with a number. Instead, ``IllegalDivisionByZero`` gives all information needed and is unambiguously an exception name.
 
-
 ## Functional codestyle
 
 - Code should be split into short, readable, aptly named and pure functions.
@@ -60,6 +59,24 @@ Unit tests must conform to the F.I.R.S.T principles of testing :
 In addition, unit tests should not contain complex scenarios. If that's the case, it means that the tested has more than one responsability, and should therefore be split.
 
 Fixtures (object mocks) may be used for unit tests, but the fixtures should remain **small** and **easy to maintain**.
+
+## Git
+
+Best practices of commit composition and [messages](https://chris.beams.io/posts/git-commit/) must be observed. In particular:
+
+- Git commit messages should be less than 50 characters (the body of the commit can be used to provide more details)
+
+- Git commit messages should be written in imperative style. A good commit message hould always be able to complete the following sentence : "If applied, this commit will ..."
+
+ex: _If applied, this commit will_ **remove deprecated methods** / _If applied, this commit will_ **implement new computing service**
+
+- Commit operations should be done very often, as to easily rollback and keep track of your changes.
+
+- Commits should be atomic, meaning that each commit should contain exactly one self-contained change - do not mix unrelated changes, and do not create inconsistent states.
+
+- Changes bust be added using ``git add -p`` to allow for code review before committing, and to only select changes relevant to the commit.
+
+- Interactive rebasing should be used extensively to maintain a linear and meaningful commit history.
 
 ## Other
 
