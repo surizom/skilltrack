@@ -36,7 +36,11 @@ ex: ``NumberException`` is a poor exception name because it gives no information
 
 - Immutable data structures should be used wherever possible.
 
-- Functional patterns (labmda functions, ternaries, `filter`, `map`, `foreach`, `reduce`) should be preferred to their imperative counterparts (`for`, `if-then-else`).
+- Functional patterns (lambda functions, ternaries, `filter`, `map`, `foreach`, `reduce`) should be preferred to their imperative counterparts (`for`, `if-then-else`).
+
+- Lambda functions should not exceed five lines in length.
+
+- Ternary operators' arguments should always be one-line, simple, very short and explicit instructions :
 
 ## Testing
 
