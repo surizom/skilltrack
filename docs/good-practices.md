@@ -2,11 +2,13 @@
 
 ## General guidelines
 
+- Boy scout rule: Leave your code better than you found it.
+
 - [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy): Logical units of the application (services, functions, components, etc...) should do **one thing** and do it well.
 
 - [KISS principle](https://fr.wikipedia.org/wiki/Principe_KISS): **simple code** is often a synonym for technical excellence
 
-- Comments are a [code smell](https://en.wikipedia.org/wiki/Code_smell): they should be used **very conservatively**; as they are a frequent source of confusion, and are rarely useful in the case of a well-written program.
+- Comments are a [code smell](https://en.wikipedia.org/wiki/Code_smell): they should be used **very conservatively**; as they are a frequent source of confusion, and are rarely useful in the case of a well-written program. Exceptions exist, especially in the case of complex business logic, or counterintuitive implementation.
 
 - Small is beautiful: files should not be longer than 300 lines of code.
 
@@ -18,14 +20,11 @@
 
 Naming variables should require continuous attention from both the developers and the reviewers. In particular:
 
-- Names should be **clear**, **concise** and **descriptive**.
+- Names should be **clear**, **concise** and **descriptive** of what the logical unit **does**.
 
 - Business terms should **never** be developer-given names / conventions. Business entities and behaviors should **always** be called by their native business name, in their native business language.
 
-- Giving technical suffixes to files containing business logic (ex: MyEntityService or MyBusinessException) should be avoided, as they hold little value, and to compel developers to give more meaningful and intent-expressing names to their files.
-
-ex: ``NumberException`` is a poor exception name because it gives no information other than the error has to do with a number. Instead, ``IllegalDivisionByZero`` gives all information needed and is unambiguously an exception name.
-
+- When naming files, one should think about what the name means without the technical suffix. In particular, if the name of the file doesn't make sense after removing the ``Service`` suffix, it's more than probably a bad name.
 ## Functional codestyle
 
 - Code should be split into short, readable, aptly named and pure functions.
@@ -38,9 +37,9 @@ ex: ``NumberException`` is a poor exception name because it gives no information
 
 - Functional patterns (lambda functions, ternaries, `filter`, `map`, `foreach`, `reduce`) should be preferred to their imperative counterparts (`for`, `if-then-else`).
 
-- Lambda functions should not exceed five lines in length.
+- Lambda functions should not exceed five lines in length. If a function's length can't be reduced to this point, classic functions should be used instead.
 
-- Ternary operators' arguments should always be one-line, simple, very short and explicit instructions :
+- Ternary operators' arguments should always be one-line, simple, very short and explicit instructions.
 
 ## Testing
 
@@ -60,7 +59,7 @@ Unit tests must conform to the F.I.R.S.T principles of testing :
 - Self-validating : tests must be fully automated, no manual action should be required to check if they pass.
 - Timely: a test is what specifies the application's behavior, and as such it should be written before the code (cf. TDD).
 
-In addition, unit tests should not contain complex scenarios. If that's the case, it means that the tested logical unit has more than one responsability, and should therefore be split.
+In addition, unit tests should not contain complex scenarios. If that's the case, it means that the tested logical unit has more than one responsibility, and should therefore be split.
 
 Fixtures (object mocks) may be used for unit tests, but the fixtures should remain **small** and **easy to maintain**.
 
@@ -70,15 +69,15 @@ Best practices of commit composition and [messages](https://chris.beams.io/posts
 
 - Git commit messages should be less than 50 characters (the body of the commit can be used to provide more details)
 
-- Git commit messages should be written in imperative style. A good commit message hould always be able to complete the following sentence : "If applied, this commit will ..."
+- Git commit messages should be written in imperative style. A good commit message should always be able to complete the following sentence : "If applied, this commit will ..."
 
 ex: _If applied, this commit will_ **remove deprecated methods** / _If applied, this commit will_ **implement new computing service**
 
 - Commit operations should be done very often, as to easily rollback and keep track of your changes.
 
-- Commits should be atomic, meaning that each commit should contain exactly one self-contained change - do not mix unrelated changes, and do not create inconsistent states.
+- Commits should be atomic: each commit should contain exactly one self-contained change - do not mix unrelated changes, and do not create inconsistent states.
 
-- Changes bust be added using ``git add -p`` to allow for code review before committing, and to only select changes relevant to the commit.
+- Changes must be added using ``git add -p`` to allow for code review before committing, and to only select changes relevant to the commit.
 
 - Interactive rebasing should be used extensively to maintain a linear and meaningful commit history.
 
@@ -87,3 +86,11 @@ ex: _If applied, this commit will_ **remove deprecated methods** / _If applied, 
 - Nested ternaries should **absolutely never** be used (``condition ? secondCondition ? A : B : C``).
 
 - Dead code should be deleted at the earliest opportunity.
+
+- The names of variables, functions, parameters, identifiers, regular front-end files should be written in ``lowerCamelCase``.
+
+- The names of classes, java files, react components and their files should be written in ``PascalCase``.
+
+- The names of constants should be written in ``UPPER_SNAKE_CASE``.
+
+- Whitespaces must be used to improve the readability of code. In particular, blank lines should be inserted between logical groups of operations.
