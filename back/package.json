@@ -4,7 +4,7 @@
   "dependencies": {
     "apollo-link-http": "1.5.17",
     "apollo-server-express": "^2.19.0",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "cls-hooked": "^4.2.2",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
